@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<style>
+  * {
+    border: 0;
+    margin: 0;
+  }
+</style>
+
+<body>
+  <canvas></canvas>
+</body>
+
+<script>
+  let canvas = document.querySelector("canvas");
+  // console.log(canvas);
+  canvas.width = document.documentElement.clientWidth;
+  canvas.height = document.documentElement.clientHeight;
+  let context = canvas.getContext("2d");
+  let isMouseDown = false;
+  canvas.addEventListener("mousedown", function (e) {
+    isMouseDown = true;
+    context.moveTo(e.pageX, e.pageY);
+  })
+  canvas.addEventListener("mousemove", function (e) {
+    if (isMouseDown){
+      context.lineWidth = 5;
+      context.lineTo(e.pageX,e.pageY);
+      context.stroke();
+    }
+  })
+  canvas.addEventListener("mouseup",function(e){
+    isMouseDown = false;
+  })
+</script>
+
+</html>

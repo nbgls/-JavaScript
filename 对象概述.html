@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	
+	<script>
+		// 创建一个对象user
+		var user = {
+			name:"niubi",
+			age:11,
+			jobs:["nbgls","shabi"],
+			flag:true,
+			getName:function(){
+				console.log("iwen");
+			},
+			abcd:{
+				fong:["sd","ggf"],
+			},
+		}
+		
+		
+		// 对象的读取方式：对象名.属性
+		console.log(user.name);       //niubi
+		console.log(user.jobs);          //(2) ['nbgls', 'shabi']
+		
+		for (var i = 0; i < user.jobs.length; i++){
+			console.log(user.jobs[i]);        //nbgls      shabi
+		}
+		
+		console.log(user.getName());
+		
+		
+		
+		console.log(user.abcd.fong);         //(2) ['sd', 'ggf']
+	</script>
+	
+	
+	
+	<body>
+	</body>
+</html>

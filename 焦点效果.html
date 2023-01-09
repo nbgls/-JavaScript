@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" value="手机" style="color: #999;"/>
+	</body>
+	<script>
+		//获取元素
+		var text = document.querySelector('input');
+		//注册 获得焦点(光标)事件 onfocus
+		text.onfocus = function(){
+			if (this.value === '手机'){
+				this.value = '';
+			}
+			this.style.color = '#333';
+		};
+		//注册 失去焦点事件 onblur
+		text.onblur = function(){
+			if (this.value === ''){
+				this.value = '手机';
+			}
+			//失去焦点需要把文本框里面的文字颜色变浅色
+			this.style.color = '#999';
+		};
+	</script>
+</html>

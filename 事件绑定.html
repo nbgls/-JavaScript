@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<button id="btn1">按钮1</button>
+<button id="btn2">按钮2</button>
+
+<!-- 在这里写JavaScript代码，因为JavaScript是由上到下执行的 -->
+<!-- 我们以前绑定事件代码只能一个事件绑定一个函数，那我们要是想一个事件对应多个函数，并且不存在兼容性的问题该如何解决呢？ -->
+<script>
+    function f1() {
+        console.log("output1 ...");
+    };
+
+    function f2() {
+        console.log("output2 ...");
+    };
+
+    // 为按钮1的单击事件绑定两个函数
+    addEventListener(document.getElementById("btn1"), "click", f1);
+    addEventListener(document.getElementById("btn1"), "click", f2);
+
+    // 点击按钮2取消按钮1的单机事件绑定函数f1
+    document.getElementById("btn2").onclick = function () {
+        removeEventListener(document.getElementById("btn1"), "click", f1);
+    };
+
+    /*为元素绑定事件兼容性代码*/
+    function addEventListener(element, type, fn) {
+        if (element.addEventListener) {
+            element.addEventListener(type, fn, false);
+        } else if (element.attachEvent) {
+            element.attachEvent("on" + type, fn);
+        } else {
+            element["on" + type] = fn;
+        }
+    }
+
+    /*为元素解绑事件兼容性代码*/
+    function removeEventListener(element, type, fnName) {
+        if (element.removeEventListener) {
+            element.removeEventListener(type, fnName, false);
+        } else if (element.detachEvent) {
+            element.detachEvent("on" + type, fnName);
+        } else {
+            element["on" + type] = null;
+        }
+    }
+</script>
+</body>
+</html>
+
+</body>
+</html>

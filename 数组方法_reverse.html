@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<script>
+		// reverse方法用于颠倒排列数组元素 返回改变后的数组 会改变原数组
+		 
+		 var arr = [1,2,3,4,5];
+		 console.log(arr.reverse());   //(5) [5, 4, 3, 2, 1]
+		 
+		 
+		 //再次反转
+		 arr.reverse();
+		 console.log(arr);              //(5) [1, 2, 3, 4, 5]
+		 
+		 var arr1 = "hello word";
+		 var arr2 = arr1.split("");
+		 console.log(arr2);                  //(10) ['h', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'd']
+		 arr2.reverse();
+		 console.log(arr2);                  //(10) ['d', 'r', 'o', 'w', ' ', 'o', 'l', 'l', 'e', 'h']
+		 var arr3 = arr2.join("");           
+		 console.log(arr3);                  //drow olleh
+	</script>
+	<body>
+	</body>
+</html>

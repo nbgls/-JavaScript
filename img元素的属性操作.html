@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="xianhua">鲜花</button>
+		<button id="siyecao">四叶草</button><br>
+		<img src="photo/四叶草.jpg" alt="" title="四叶草">
+		<script>
+			var xianhua = document.getElementById('xianhua');
+			var siyecao = document.getElementById('siyecao');
+			var img = document.querySelector('img');
+			xianhua.onclick = function (){
+				img.src ='photo/鲜花.jpg';
+				img.title = '鲜花';
+
+			};
+			siyecao.onclick = function (){
+				img.src = "photo/四叶草.jpg";
+				img.title = '四叶草';
+			};
+			</script>
+	</body>
+</html>

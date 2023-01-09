@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .col {
+    font-weight: bolder;
+    background-color: blue;
+  }
+
+  .back {
+    font-size: 48px;
+    color: red;
+  }
+</style>
+
+<body>
+  <div id="div1">92384uhfusfsf</div>
+  <button id="btn" onclick="dianwo()">点我</button>
+  <button id="btn" onclick="dianwo2()">点我</button>
+  <button id="btn" onclick="dianwo3()">点我</button>
+  <button id="btn" onclick="dianwo4()">点我</button>
+
+  <script>
+
+// className的缺点：会覆盖元素之前的样式，所以在以后使用插件或者框架的时候，我们往往并不是很方便的知道当前元素之前加了什么样式，意味着我们在使用calssName的时候，风险很大，如果你能确定元素就是一个样式，那么就可以使用className。
+// classList不会修改元素之前所用的样式
+// toggle方法：如果有样式就是移除，没有就是添加，而且只能切换一个
+
+
+    // 上面这种方式和直接使用attr()和prop()一样，虽然会为元素添加一个class属性，但是会将之前所有的class属性覆盖掉。
+    function dianwo() {
+      document.getElementById('div1').className = 'col';
+      document.getElementById('div1').className = 'back';
+    }
+
+
+    // 如果不想将之前的class属性值覆盖掉，那么将上面的代码进行简单的修改即可。（注意：+= 后面需要留一个空格）
+    function dianwo2() {
+      document.getElementById('div1').className = 'col';
+      document.getElementById('div1').className += ' back';	//属性值back前有一个空格
+    }
+
+
+    // 这种方法也是比较好用的，直接为元素添加一个class属性值，之前的不会覆盖。（注意：这里属性值后面没有空格）
+    function dianwo3() {
+
+      document.getElementById('div1').className = 'col';
+      document.getElementById('div1').classList.add('back');	//此处没有空格
+    }
+
+
+
+    // 将某元素的很多class属性值中将其中一个属性值删除。
+    function dianwo4() {
+      document.getElementById('div1').className = 'col';
+      document.getElementById('div1').className += ' back';
+      document.getElementById('div1').classList.remove("col");
+    }
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<script>
+		//for循环
+		for (var i = 1; i <=50; i=i+2){
+			console.log('i');
+		}
+		
+		
+		//重复执行不同的代码
+		for (var i = 1; i <= 100; i++){
+			if (i == 1){
+				console.log('当前是第一次');
+			}else if (i == 100){
+				console.log('当前是一百次'); 
+			}
+		}
+		
+		
+		//1-100的偶数求和和奇数求和
+		var oushu = 0;
+		var jishu = 0;
+		for (var i = 1; i <=100; i++){
+			if(i % 2 == 0){                                  //判断i是奇数还是偶数
+				oushu += i ;
+			}else{
+				jishu += i ;
+			}
+		}
+		console.log('1-100之间所有偶数的和是' + oushu);       //2550
+		console.log('1-100所有奇数的和是' + jishu);           //2500
+		
+		
+		//i行j列的星星图案
+		var str = '';
+		for (var i = 1; i <=5; i++){
+			for (var j = 1; j <=5; j++){
+			str = str + '⭐';
+			}
+		str += '\n';                                        //'\n'是javascript的转义字符将输出一个换行符
+		}
+		console.log(str);
+		
+		
+		//生成三角行的星星图案
+		var str = '';
+		for (var i = 1; i <=5; i++){
+			for (var j = i; j <=5; j++){
+			str = str + '⭐';
+			}
+		str += '\n';
+		}
+		console.log(str);
+		
+		
+		//生成九九乘法表
+		var str = "";
+		for (var i = 1; i <= 9; i++){
+			for (var j = 1; j <= i; j++){
+				str += j + '×' + i + '=' + i * j + '\t';    //“\t”为“转义字符“，代表的是一个tab，也就是8个空格。
+			}
+			str += '\n';
+		}
+		console.log(str);
+		
+		
+		//while语句
+		/*while (条件表达式){
+			循环体
+		}*/
+		var num = 1;
+		while (num <= 100){
+			console.log(num);
+			num++;
+		}
+		
+		
+		//do...while语句
+		var num = 0;
+		var i = 1;
+		do {
+			num += i;
+			i++;
+		} while(i <= 100)
+		console.log(num);                      //5050
+		
+		
+		//continue关键字
+		for (var i = 1; i <= 5; i++){
+			if (i == 3){
+				continue;                     //跳出本次循环
+			}
+			console.log('我吃完了第' + i + '个苹果');
+		}
+		
+		
+		//break关键字
+		for (var i = 1; i <=5; i++){
+			if (i == 3){
+				break;
+			}
+			console.log('我吃完了第' + i + "个苹果");
+		}
+		
+		
+		//创建数组一种"new Array()"另一种"[]"
+		var arr1 = new Array();                           //空数组
+		var arr2 = new Array('苹果','橘子','香蕉','桃子');
+		var arr3 = [1, [21, 22], 3];                      //在数组中保存数组
+		console.log(arr3);
+		console.log(arr2);
+		console.log(arr1);
+		console.log(arr2[2]);                             //香蕉
+		
+		
+		//数据遍历
+		var arr = [80, 75, 69, 95, 92, 88, 76];
+		var sum = 0;
+		for (var i = 0; i < 7; i++){
+			sum += arr[i];
+		}
+		var avg = sum / 7;
+		console.log(avg.toFixed(2));                      //.toFixed()保留小数点后几位
+		console.log(arr.length);                          //.length获取数组长度
+		
+		
+		//最大值
+		var arr = [2,6,1,77,132,52,55,25,7,99];
+		var max = arr[i];
+		for (var i = 1 ;i < arr.length; i++){
+			if (arr[i] > max){
+				max =arr[i];
+			}
+		}
+		console.log('数组元素中最大是' + max);          //132
+		
+		
+		//修改数组长度
+		var arr1 =  [1,2];
+		arr1.length = 4;                              //大于原有长度
+		console.log(arr1);                            //(4) [1, 2, 空 ã2]
+		var arr2 = [1,2,3,4];
+		arr2.length = 2;                              //小于原有长度
+		console.log(arr2);                            //(2) [1, 2]
+		
+		
+		//访问空元素时 返回undefined
+		var arr = [1];
+		console.log(arr[1]);                           //undefined
+		var arr = [1,2,,4];
+		console.log(arr)                               // [1, 2, 空, 4]
+		var arr = new Array(4);
+		console.log(arr);                              //[空 ã4]
+		var arr = [1];
+		arr[3] = 4;
+		console.log(arr);                              // [1, 空 ã2, 4]
+		
+		
+		//新增或修改数组元素
+		var arr= ['red','green','blue'];
+		arr[3] = 'pink';                               //添加元素
+		console.log(arr);
+		arr[0] = 'yellow';                             //修改元素
+		console.log(arr);
+		
+		
+		//通过循环语句啦天贾多组数据
+		var arr = [];
+		for (var i = 0; i < 10; i++){
+			arr[i] = i;
+		}
+		console.log(arr);                             //(10) [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+		
+		
+		//筛选数组
+		var arr = [2,0,6,0,1,77,0,58,52,0,8,25,7];
+		var bigarr = [];                             //得再加一个条件var j = 0;
+		for (var i = 0; i < arr.length; i++){
+			if (arr[i] >= 10){
+				bigarr[bigarr.length] = arr[i];      //bigarr[bigarr.length]可替换成bigarr[j++]
+			}
+		}
+		console.log(bigarr);                         //(4) [77, 58, 52, 25]
+		
+		
+		//删除指定的数组元素
+		var arr = [2,0,6,0,1,77,0,58,52,0,8,25,7];
+		var newarr = [];
+		var j = 0;
+		for (var i = 0; i < arr.length; i++){
+			if (arr[i] != 0){
+				newarr[j++] = arr[i];
+			}
+		}
+		console.log(newarr);                         //(9) [2, 6, 1, 77, 58, 52, 8, 25, 7]
+		
+		
+		//反转数组元素的顺序
+		var arr = [1,2,3,4,5,6,7,8,9,10,11,12];
+		var newarr = [];
+		for (var i = arr.length - 1;i >= 0; i--){
+			newarr[newarr.length] = arr[i];
+		}
+		console.log(newarr);                        //(12) [12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+		
+		
+		//使用typeof查看数组的数据类型
+		console.log(typeof[]);                      //object
+		//当数组的索引是字符串时 它将变成一个类数组对象 不再是一个纯数组
+		var arr = [];
+		arr ['name'] = 'Tom';
+		console.log(arr['name']);                  //Tom
+		// 当对数组类型的变量进行赋值时，会发生引用传递 而不是值传递
+		var arr1 = [1,2];
+		var arr2 = arr1;                          //引用传递 arr2和arr1引用同一个数组
+		arr2[2] = 3;                              //此时arr2相当于arr1的别名
+		console.log(arr1);                        //(3) [1, 2, 3]
+		
+		
+		
+		//当左侧的变量数量小于右侧的元素个数
+		var arr = [1,2,3];
+		[a,b] = arr;
+		console.log(a + '-' + b);                   //1-2
+		//当左侧的变量数量大于右侧的元素个数
+		var arr = [5,6];
+		[d,e,f] = arr;
+		console.log(d + '-' + e + '-' +f);          //5-6-undefined
+		//两个变量数值的交换
+		var n1 = 4, n2 = 8;
+		[n1,n2] = [n2, n1];
+		console.log(n1 + '-' + n2);                 //8-4	
+		
+		
+		//冒泡排序
+		var arr = [10,7,5,27,98,31,57,25,99,13,74];
+		for (var i = 0; i < arr.length; i++){            //控制需要比较的轮数
+			for (var j =0; j < arr.length; j++){         //控制参与比较的元素
+				if (arr[j] > arr[j+1]){                  //比较相邻的两个元素
+					var temp = arr[j + 1];
+					arr[j + 1] = arr[j];
+					arr[j] = temp;
+				}
+			}
+		}
+		console.log(arr);                     //(11) [5, 7, 10, 13, 25, 27, 31, 57, 74, 98, 99]
+		
+		
+		//插入排序
+		var arr = [10,8,100,31,87,70,1,88,25,52];
+		for (var i = 0; i < arr.length; i++){   //按照从小到大的顺序排列 先遍历无序数组下标
+			for (var j = i; j > 0; j--){        //遍历并比较一个无序数组元素与所有有序数组元素
+				if (arr[j-1] > arr[j]){
+					var temp = arr[j-1];
+					arr[j - 1] = arr[j];
+					arr[j] = temp;
+				}
+			}
+		}
+		console.log(arr);                   //(10) [1, 8, 10, 25, 31, 52, 70, 87, 88, 100]
+		
+		
+		//创建二维数组
+		//使用Array创建数组
+		var info = new Array(
+		new Array('tom','13','155'),
+		new Array('lucy','11','152')
+		);
+		console.log(info);                     //(2) [Array(3), Array(3)]
+		console.log(info[0]);                  //(3) ['tom', '13', '155']
+		console.log(info[0][0]);               //tom
+		//使用'[]'创建数组
+		var arr = [[1,2],[3,4]];
+		console.log(arr);                     //(2) [Array(2), Array(2)]
+		console.log(arr[0]);                  //(2) [1, 2]
+		console.log(arr[1][0]);               //3
+		
+		
+		//二维数组求和
+		var arr = [[12,59,66],[100,888]];
+		var sum = 0; 
+		for (var i = 0;i < arr.length; i++){              //遍历arr数组
+			for (var j = 0; j < arr[i].length; j++){      //遍历arr[i]数组
+				sum += arr[i][j];                         //为二维数组元素累加
+			}
+		}
+		console.log(sum);                             //1125
+		
+		
+		//二位数组转置
+		var arr = [
+			['a','b','c'],['d','e','f'],['g','h','i'],['j','k','l']
+		];
+		var res = [];
+		for (var i = 0; i < arr[0].length; i++){
+			res[i] = [];
+			for (var j = 0; j < arr.length; j++){
+				res[i][j] = arr[j][i];
+			}
+		}
+		console.log(res);
+		
+		
+		//函数的使用
+		function 函数名 (){
+			//函数体代码
+		}
+		//声明函数
+		function sayHello(){
+			console.log('hello');
+		}
+		//调用函数
+		sayHello();
+		
+		
+		//函数
+		function getsum(num1,num2) {      //声明一个getsum函数 将代码写在大括号'{}'中
+			var sum = 0;
+			for (var i = num1; i <= num2; i++){
+				sum += i;
+			}
+			console.log(sum);                //函数执行结束后 将结果输出
+		}                           //调用getsum函数，在调用时需要写上小括号，并在小括号里传入参数
+		getsum(1,100);                                //5050
+		getsum(10,50);                                //1230
+	</script>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<style>
+  .text_select {
+    /* border: 1px solid black; */
+    width: 500px;
+
+  }
+
+  .text {
+    width: 500px;
+    height: 30px;
+    border-radius: 0;
+  }
+
+  .select {
+    width: 506px;
+    height: 0px;
+    border: 1px solid black;
+    border-radius: 10px;
+    line-height: 30px;
+    display: flex;
+    /* overflow是对溢出内容的处理，有四个属性值visible，hidden，scroll，auto，且可以分别设置overflow-x，overflow-y */
+    overflow: hidden;
+    /* 这将建立主轴，从而定义Flex项目放置在Flex容器中的方向 */
+    /* row（默认值）：主轴为水平方向，起点在左端。
+    row-reverse：主轴为水平方向，起点在右端。
+    column：主轴为垂直方向，起点在上沿。
+    column-reverse：主轴为垂直方向，起点在下沿。 */
+    flex-direction: column;
+    /* padding: 0 20px; */
+  }
+  .select span{
+    text-align: center;
+  }
+</style>
+
+<body>
+  <div class="text_select">
+    <input type="text" class="text">
+    <div class="select">
+      <span>skdjfbksjdfh</span>
+      <span>asdfikusahd</span>
+      <span>lskdjflsk</span>
+      <span>sdlkjfh</span>
+      <span>dskjhsdlk</span>
+    </div>
+  </div>
+</body>
+
+<script>
+  let input = document.querySelector(".text");
+  // console.log(input);
+  let select = document.querySelector(".select");
+  input.onfocus = function () {
+    select.style.transition = "none";
+    select.style.height = "auto";
+    let heights = select.offsetHeight;
+    // console.log(heights);
+    select.style.height = "0";
+    select.offsetHeight;
+    select.style.transition = "1s";
+    select.style.height = heights + "px";
+  }
+  input.onblur = function () {
+    select.style.transition = "1s";
+    select.style.height = "0";
+  }
+</script>
+
+</html>

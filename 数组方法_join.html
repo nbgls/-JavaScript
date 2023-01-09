@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		// join方法以指定参数作为分隔符，将所有数组成员连接作为一个字符串返回 如果不提供参数 默认用逗号分隔
+		var a = [10,20,30,40];
+		console.log(a.join());            //10,20,30,40
+		console.log(a.join("|"));         //10|20|30|40
+		console.log(a.join(""));          //10203040
+		a.join("");
+		console.log(a);
+		
+		
+		// 数组的join配合字符串的split可以实现数组与字符串的互换
+		var arr1 = ["hello","word"]
+		var result = arr1.join(" ");
+		console.log(result);                 //hello word
+		console.log(result.split(" "));           //(2) ['hello', 'word']
+	</script>
+</html>

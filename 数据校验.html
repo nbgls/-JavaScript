@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+
+
+<style>
+  .error {
+    color: red;
+    font-size: 12px;
+  }
+</style>
+
+
+
+<body>
+
+  <form action="">
+    <!-- <input id="zhanghao" type="text" onblur="checkId()"> -->
+    手机号:<input type="text" id="username" onblur="checkId()" placeholder="请输入账号" />
+    <div id="error_username" class="error"></div><br />
+    密码:<input type="password" id="password" onblur="checkIder1()" placeholder="请输入密码" />
+    <div id="error_password" class="error"></div><br />
+    再次输入密码:<input type="password" id="password2" onblur="checkIder2()" placeholder="请再次输入密码" />
+    <div id="error_password2" class="error"></div><br />
+    <div class="btn">
+      <input type="button" value="提交" id="login_btnf" onclick="login()" />
+      <input type="reset" value="重置">
+    </div>
+  </form>
+
+
+</body>
+<script>
+
+  // 设置全局变量
+  flag1 = false;
+  flag2 = false;
+  flag3 = false;
+
+
+  // 检查用户名
+  function checkId() {
+    // 获取元素
+    var user = document.getElementById("username").value;
+    var error_user = document.getElementById("error_username");
+    // 初始error_user为空
+    error_user.innerText = "";
+    // 检查用户名是否为空
+    if (user == "" || user == null) {
+      // innerText用来添加文本内容
+      error_user.innerText = "*用户名不能为空!";
+      // 遇到错误就终止返回
+      return;
+    }
+    if (user.length < 4 || user.length > 20) {
+      error_user.innerText = "*请输入用户名长度4-20"
+      return;
+    }
+    //  以英文字母开头，只能包含英文字母、数字、下划线
+    var usermatch = /^[a-zA-Z][a-zA-Z0-9_]*$/;               //正则表达式
+    if (!user.match(usermatch)) {
+      error_user.innerText = "* 以英文字母开头，只能包含英文字母、数字、下划线";
+      return;
+    }
+    flag1 = true;
+  }
+
+
+  function checkIder1() {
+    var passworder = document.getElementById("password").value;
+    var error_pass = document.getElementById("error_password");
+    error_pass.innerText = "";
+    if (passworder == "" || passworder == null) {
+      error_pass.innerText = "*密码不能为空";
+      return;
+    }
+    if (passworder.length < 8 || passworder.length > 20) {
+      error_pass.innerText = "*密码长度为8-20"
+      return;
+    }
+    flag2 = true;
+  }
+
+  function checkIder2() {
+    var passworder2 = document.getElementById("password2").value;
+    var error_pass2 = document.getElementById("error_password2");
+    var passworder = document.getElementById("password").value;
+    error_pass2.innerText = "";
+    if (passworder2 == "" || passworder2 == null) {
+      error_pass2.innerText = "*密码不能为空";
+      return;
+    }
+    if (passworder2.length < 8 || passworder2.length > 20) {
+      error_pass2.innerText = "*密码长度为8-20";
+      return;
+    }
+    if (passworder2 != passworder) {
+      error_pass2.innerText = "*输入的密码与上面的密码不一致";
+      return;
+    }
+    flag3 = true;
+  }
+
+  // 提交按钮
+  function login() {
+    // 只有满足上面的三个框都没有错误才能进行接下来的验证
+    if (flag1 && flag2 && flag3) {
+      var user = document.getElementById("username").value;
+      var passworder = document.getElementById("password").value;
+      if (user == "dsy520tby" && passworder == "tby520dsy") {
+        alert("认证成功");
+        window.location.href = "file:///D:/HTML5+CSS3/D&T/%E9%A6%96%E9%A1%B5.html";
+      } else {
+        alert("账号或密码错误");
+      }
+    } else {
+      alert("检查用户名或密码格式是否正确");
+    }
+  }
+
+</script>
+
+</html>

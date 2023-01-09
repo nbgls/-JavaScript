@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+
+<style>
+  .bigdiv{
+    margin-top: 200px;
+    margin-left: 400px;
+  }
+  .tishi{
+    width: 300px;
+    height: 40px;
+    background-color: aqua;
+    visibility: hidden;
+  }
+  input{
+    vertical-align: auto;
+  }
+</style>
+
+<body>
+  <div class="bigdiv">
+    <div class="tishi"></div>
+    <span>快递单号：</span>
+    <input type="text" placeholder="请输入快递单号" class="num">
+  </div>
+</body>
+
+<script>
+  const tishi = document.querySelector(".tishi");
+  const inputs = document.querySelector(".num");
+  // console.log(tishi);
+  // console.log(inputs);
+  inputs.addEventListener("keyup", function (){
+    if (this.value == "") {
+      tishi.style.visibility = "hidden";
+    } else{
+      tishi.style.visibility = "visible";
+      tishi.innerText = this.value;
+    }
+  })
+</script>
+
+</html>

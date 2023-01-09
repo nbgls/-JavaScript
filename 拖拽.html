@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  div {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    /* box-shadow: 1px black; */
+    border-radius: 15px;
+    position: absolute;
+    left: 500px;
+    top: 300px;
+  }
+</style>
+
+<body>
+  <div></div>
+</body>
+
+<script>
+  let divs = document.querySelector("div");
+  let widths = window.innerWidth;
+  let heights = window.innerHeight;
+  let flag = false;
+  // console.log(divs);
+  divs.addEventListener("mousedown", (e) => {
+    let x = e.offsetX;
+    let y = e.offsetY;
+    flag = true;
+
+    document.addEventListener("mousemove", (e) => {
+      let div_left = e.clientX - x;
+      let div_top = e.clientY - y;
+      div_top = Math.min(Math.max(0,div_top),heights);
+      div_left = Math.min(Math.max(0,div_left),widths);
+      if (flag) {
+        divs.style.top = div_top + "px";
+        divs.style.left = div_left + "px";
+      }
+    })
+
+  })
+  divs.addEventListener("mouseup", () => {
+    flag = false;
+  })
+
+</script>
+
+</html>

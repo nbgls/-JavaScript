@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<style>
+  .preview_img {
+    position: relative;
+    top: 125px;
+    cursor: move;
+  }
+
+  .preview_img>img {
+    width: 350px;
+    height: 350px;
+  }
+
+  .mask {
+    /* display: none; */
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+  }
+
+  .big {
+    /* display: none; */
+    width: 350px;
+    height: 350px;
+    position: absolute;
+    left: 400px;
+    overflow: hidden;
+    top: 0;
+  }
+
+  .bigimg {
+    position: relative;
+    width: 700px;
+    height: 700px;
+    left: -150px;
+    top: -150px;
+  }
+</style>
+
+<body>
+  <div class="preview_img">
+    <img src="photo/库洛米.jpg">
+    <div class="mask"></div>
+    <div class="big">
+      <img src="photo/库洛米.jpg" class="bigimg">
+    </div>
+  </div>
+
+</body>
+
+
+<script>
+  window.addEventListener('load', function () {
+    const preview_img = document.querySelector('.preview_img');
+    const mask = document.querySelector('.mask');
+    const big = document.querySelector('.big');
+    preview_img.addEventListener('mouseover', function () {
+      mask.style.display = 'block';
+      big.style.display = 'block';
+    })
+    preview_img.addEventListener('mouseout', function () {
+      mask.style.display = 'none';
+      big.style.display = 'none';
+    })
+    preview_img.addEventListener('mousemove', function (e) {
+      let x = e.pageX - this.offsetLeft - mask.offsetWidth / 2;
+      let y = e.pageY - this.offsetTop - mask.offsetHeight / 2;
+      // 遮挡层的最大移动距离
+      let maskMax = preview_img.children[0].offsetWidth - mask.offsetWidth;
+      if (x <= 0) {
+        x = 0;
+      } else if (x >= maskMax) {
+        x = maskMax;
+      }
+      if (y <= 0) {
+        y = 0;
+      } else if (y >= preview_img.offsetHeight - mask.offsetHeight) {
+        y = preview_img.offsetHeight - mask.offsetHeight;
+      }
+      mask.style.left = x + 'px';
+      mask.style.top = y + 'px';
+      // 大图移动距离 = 遮挡层移动距离 * 大图最大移动距离 / 遮挡层的最大移动距离
+      let bigimg = document.querySelector('.bigimg');
+      // 大图最大移动距离
+      let bigMax = bigimg.offsetWidth - big.offsetWidth;
+      // 大图的移动距离
+      let bigX = x * bigMax / maskMax;
+      let bigY = y * bigMax / maskMax;
+      bigimg.style.left = -bigX + 'px';
+      bigimg.style.top = -bigY + 'px';
+    })
+  })
+  // let mask = document.querySelector(".mask");
+  // let preview_img = document.querySelector(".preview_img");
+  // let big = document.querySelector(".big");
+  // let bigimg = document.querySelector(".bigimg");
+  // preview_img.addEventListener("mousemove", (e) => {
+  //   mask.style.display = "block";
+  //   let maskx = e.clientX - this.offsetLeft - mask.offsetWidth / 2;
+  //   let masky = e.clientY - this.offsetTop - mask.offsetHeight / 2;
+  //   console.log(maskx);
+  //   let maskmaxx = this.offsetWidth - mask.offsetWidth;
+  //   let maskmaxy = this.offsetHeight - mask.offsetHeight;
+  //   if (maskx < 0) {
+  //     maskx = 0;
+  //   } else if (maskx > maskmaxx) {
+  //     maskx = maskmaxx;
+  //   }
+  //   if (masky < 0) {
+  //     masky = 0;
+  //   } else if (masky > maskmaxy) {
+  //     masky = maskmaxy;
+  //   }
+  //   mask.style.left = maskx + "px";
+  //   mask.style.top = masky + "px";
+  //   big.style.display = "block";
+  //   let bigimgmax = bigimg.offsetWidth - big.offsetWidth;
+  //   let bigimgx = maskx * bigimgmax / maskmaxx;
+  //   let bigimgy = masky * bigimgmax / maskmaxy;
+  //   bigimg.style.left = -bigimgx + "px";
+  //   bigimg.style.top = -bigimgy + "px";
+  // })
+  // preview_img.addEventListener("mouseout", () => {
+  //   big.style.display = "none";
+  //   mask.style.display = "block";
+  // })
+</script>
+
+</html>

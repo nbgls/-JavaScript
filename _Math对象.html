@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	
+	
+	<script>
+		// Math.abs()返回参数值的绝对值
+		Math.abs(1);            //1
+		Math.abs(-1);         //1
+		
+		// Math.max()返回参数中最大的值 Math.min()返回最小的值 如果参数为空 Math.min()返回infinity Math.max()返回-infinity
+		console.log(Math.max(2,5,-5));         //5
+		console.log(Math.min(34,657,1));            //1
+		console.log(Math.min());           //Infinity
+		console.log(Math.max());            //-Infinity
+		
+		
+		// Math.floor()返回小于参数的最大整数
+		console.log(Math.floor(3.8));          //3
+		console.log(Math.floor(-3.2));          //-4
+		// Math.ceil()返回大于参数值的最小整数
+		console.log(Math.ceil(3.2));          //4
+		console.log(Math.ceil(-3.2));            //-3
+		
+		
+		// Math.random()返回0到1之间的一个伪随机数 可能等于0 但一定小于1
+		console.log(Math.random());             //0.8870572003563872
+		
+		
+		function getRandomArbitrary(min,max){
+			var result = Math.random()*(max - min) + min;
+			return result;
+		}
+		
+		console.log(getRandomArbitrary(2,10));       //9.550628633904974
+		
+	</script>
+	
+	
+	<body>
+	</body>
+</html>

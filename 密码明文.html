@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="box">
+			<label for="">
+				<img src="photo/biyan.jpg" alt="" id="eye" style="width: 30px;height: 30px"/>
+			</label>
+			<input type="password" name="" id="pwd"/>
+		</div>
+		<script>
+			//获取元素
+			var eye = document.getElementById('eye');
+			var pwd = document.getElementById('pwd');
+			//注册事件处理程序
+			var flag = 0;
+			eye.onclick = function(){
+				//每次单击，修改flag的值
+				if (flag == 0){
+					pwd.type = 'text';
+					eye.src = 'photo/zhengyan.jpg';
+					flag = 1;
+				} else{
+					pwd.type = 'password';
+					eye.src = 'photo/biyan.jpg';
+					flag = 0;
+				}
+			};
+		</script>
+	</body>
+</html>

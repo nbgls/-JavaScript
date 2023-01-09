@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // _concat方法用于连接两个字符串 返回一个新字符串 不改变原字符串
+        var str1 = "Hello"
+        var str2 = "Word"
+        var str3 = "!";
+        var str4 = "100";
+        var rester = str1.concat(str2);
+        console.log(rester);
+        // 可以连接多个字符串
+        var rester1 = str1.concat(str2,str3);
+        console.log(rester1);
+        var rester2 = "".concat(str1,str2,str3);
+        console.log(rester2);
+        var rester3 = "".concat(str1,str2,str3,str4);          //会先把数字转换字符串 再连接
+        console.log(rester3);  
+        var one = 1;
+        var two = 2;
+        var three = "3";
+        // concat与加号有区别 
+        //concat不管什么类型 直接转化成字符串连接 
+        //加号遇到数字类型做运算 遇到字符串相连接
+        console.log("".concat(one,two,three));                //123
+        console.log(one + two + three);                       //33
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

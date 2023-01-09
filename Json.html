@@ -1,0 +1,33 @@
+<script>
+  // JSON 中的字符串必须用双引号包围。
+  // {"name": "John"}
+
+  // JSON 中的数字必须是整数或浮点数。
+  // {"age": 30}
+
+  // JSON 中的值可以是对象，JSON 中作为值的对象必须遵守与 JSON 对象相同的规则
+  // {
+  // "employee": {"name": "Bill Gates", "age": 62, "city": "Seattle"}
+  // }
+
+  // JSON 中的值可以是数组。
+  // {
+  // "employees": ["Bill", "Steve", "David"]
+  // }
+
+  // JSON 中的值可以是 true/false。
+  // {"sale": true}
+
+  // JSON 中的值可以是 null。
+  // {"middlename": null}
+
+  // JSON.parse()：可以将以JSON字符串转换为JS对象，它需要一个JSON字符串作为参数，会将该字符串转换为JS对象并返回
+  var jsonStr = '{"name":"孙悟空","age":18,"gender":"男"}';
+  var obj = JSON.parse(jsonStr);
+  console.log(obj);
+
+  // JSON.stringify()：可以将一个JS对象转换为JSON字符串，需要一个js对象作为参数，会返回一个JSON字符串
+  var obj = { name: "猪八戒", age: 28, gender: "男" };
+  var jsonStr = JSON.stringify(obj);
+  console.log(jsonStr);
+</script>

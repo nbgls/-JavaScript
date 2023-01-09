@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		// concat用于多个数组的合并 他将新的数组成员添加到原数组成员的后部 然后返回一个新数组 原数组不变
+		var arr1 = ["程序员","牛逼"];
+		var arr2 = ["cxy","nb"];
+		var arr3 = ["nbgls","sb"];
+		console.log(arr1+arr2);           //程序员,牛逼cxy,nb
+		console.log(arr1.concat(arr2));     //(4) ['程序员', '牛逼', 'cxy', 'nb']
+		console.log(arr1.concat(arr2,arr3));//(6) ['程序员', '牛逼', 'cxy', 'nb', 'nbgls', 'sb']
+		
+		
+		var a = [1,2,3];
+		// 会合成一个一维数组
+		console.log(a.concat(4,5,6,[7,8,9]));      //(9) [1, 2, 3, 4, 5, 6, 7, 8, 9]
+	</script>
+</html>

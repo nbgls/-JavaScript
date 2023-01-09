@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			function checkForm(){
+				var input1 = document.getElementById("username");
+				var uValue = input1.value;
+				if(uValue.length = 11){
+					
+				}else{
+					alert("对不起，手机号格式不对")
+					return false;
+				}
+				var email=document.getElementById("email");
+				var uEmail=email.value;
+				if(/^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/.test(uEmail)){
+					alert("校验成功");
+				}else{
+					alert("校验失败"); 
+					return false;
+				}
+				return true;
+			}
+		</script>
+	</head>
+	<body>
+		<form action="file:///C:/dsy%20and%20tby/%E9%A6%96%E9%A1%B5.html" onsubmit="return checkForm()">
+			手机号:<input type="text" id="username"/><br />
+			密码:<input type="password" id="password"/><br />
+			邮箱:<input type="text" id="email"/><br />
+			<input type="button" value="提交"/>
+		</form>
+	</body>
+</html>

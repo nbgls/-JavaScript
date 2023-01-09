@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<textarea name="" id=""></textarea>
+		<button>发布</button>
+		<ul></ul>
+	</body>
+	<script>
+		//获取元素
+		var btn = document.querySelector('button');
+		var text = document.querySelector('textarea');
+		var ul = document.querySelector('ul');
+		//注册事件
+		btn.onclick = function (){
+			if (text.value =='') {
+				alert('您没输入内容');
+				return false;
+			} else{
+				//创建元素
+				var li = document.createElement('li');
+				li.innerHTML = text.value + '<a href="javascript:;">删除</a>';
+				//添加元素
+				ul.insertBefore(li,ul.children[0]);
+				var as = document.querySelectorAll('a');
+				for (var i = 0; i < as.length;i++){
+					as[i].onclick = function (){
+						ul.removeChild(this.parentNode);
+					}
+				}
+			}
+		};
+	</script>
+</html>

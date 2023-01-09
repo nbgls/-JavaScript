@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // push用于在数组末端添加一个或多个元素 并返回添加新元素后的数组长度 会改变元素组
+        var arr = new Array();
+        arr[0] = "hello";
+        arr.push("word");
+        var restul =  arr.push("shabi","hanpi");      //长度
+        console.log(arr);             //['hello', 'word', 'shabi', 'hanpi']
+        console.log(restul);              //4
+        console.log(Array.isArray(arr));           //ture
+
+        // 用于删除数组的最后一个元素 并返回该元素 会改变原素组
+        var arr1 = [100,200,300,400];
+        console.log(arr1);                 //[100, 200, 300, 400]
+        arr1.pop();
+        console.log(arr1);                //[100, 200, 300]
+    </script>
+</body>
+</html>

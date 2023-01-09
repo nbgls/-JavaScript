@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .photo_div {
+    width: 400px;
+    height: 200px;
+    border: 3px solid black;
+    /* display: flex; */
+    position: relative;
+    /* float: left; */
+    /* 这样设置后，假如DIV对象设置一定宽度高度，此时加入overflow:hidden将会隐藏超出DIV宽度高度的内容包括图片 */
+    overflow: hidden;
+    left: 400px;
+  }
+
+  .photo_xiao {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    background-color: coral;
+    left: 0;
+    transition: all 1s;
+    /* overflow:hidden */
+  }
+
+  .photo_div img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    /* object-fit: cover; */
+    /* float: left; */
+    /* left: 0; */
+    /* flex-shrink 属性指定了 flex 元素的收缩规则。flex 元素仅在默认宽度之和大于容器的时候才会发生收缩，其收缩的大小是依据 flex-shrink 的值。 */
+    flex-shrink: 0;
+  }
+
+  .leftdiv {
+    cursor: pointer;
+    width: 10px;
+  }
+
+  .rightdiv {
+    cursor: pointer;
+    width: 10px;
+  }
+</style>
+
+<body>
+  <div class="photo_div">
+    <div class="photo_xiao">
+      <img src="photo/四叶草.jpg">
+      <img src="photo/库洛米.jpg">
+      <img src="photo/草莓熊1.jpg">
+      <img src="photo/草莓熊2.jpg">
+    </div>
+  </div>
+  <div class="leftdiv">《</div>
+  <div class="rightdiv">》</div>
+</body>
+
+<script>
+  let index = 0;
+  let photo_div = document.querySelector(".photo_div");
+  let photo_xiao = document.querySelector(".photo_xiao");
+  // console.log(photo_xiao);
+  let widths = getComputedStyle(photo_xiao).width;
+  widths = Number(widths.slice(0, -2));
+  // console.log(widths);
+
+
+  let times = setInterval(() => {
+    index++;
+    if (index > photo_xiao.children.length - 1) {
+      index = 0;
+      // photo_xiao.style.left = index * widths * -1 + "px";
+    } else if (index < 0) {
+      index = photo_xiao.children.length - 1;
+      // photo_xiao.style.left = index * widths * -1 + "px";
+    }
+    photo_xiao.style.left = index * widths * -1 + "px";
+
+  }, 3000)
+
+  // function refresh() {
+  //   if (index < 0) {
+  //     // 下标小于 0 时
+  //     // 设置最右的图片
+  //     index = photo_xiao.children.length - 1;
+  //   } else if (index >= photo_xiao.children.length - 1) {
+  //     // 下标超过上限时
+  //     // 设置最左的图片
+  //     index = 0
+  //   }
+  // }
+  // function createAuto() {
+  //   return setInterval(() => {
+  //     index++
+  //     refresh()
+  //   }, 3000)
+  // }
+  // let autoTimer = getauto()
+
+  // photo_xiao.style.left = index * widths * -1 + "px";
+  let leftdiv = document.querySelector(".leftdiv");
+  let rightdiv = document.querySelector(".rightdiv");
+  // console.log(rightdiv);
+  // let refreshWrapper = (func) => {
+  //   // index--;
+  //   return function (...args) {
+  //     let result = func(...args)
+  //     refresh()
+  //     clearInterval(times);
+  //     // return function () {
+  //     setInterval(times);
+  //     return result
+  //   }
+  // autoTimer = getauto;
+  // index--;
+  // if (index < 0) {
+  //   index = photo_xiao.children.length - 1;
+
+  // }
+  // photo_xiao.style.left = index * widths * -1 + "px";
+
+  // }
+  leftdiv.addEventListener("click", () => {
+    index--;
+    if (index < 0) {
+      index = photo_xiao.children.length - 1;
+
+    }
+    photo_xiao.style.left = index * widths * -1 + "px";
+    
+  })
+
+  rightdiv.addEventListener("click", () => {
+    index++;
+    if (index < 0) {
+      index = photo_xiao.children.length - 1;
+
+    }
+    photo_xiao.style.left = index * widths * -1 + "px";
+  })
+
+  console.log(window.history.back());
+</script>
+
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    console.log(location);          //输出location对象
+    console.log(location.href);     //输出当前地址的全路径地址
+    console.log(location.origin);   //输出当前地址的来源
+    console.log(location.protocol); //输出当前地址的协议
+    console.log(location.hostname); //输出当前地址的主机名
+    console.log(location.host);     //输出当前地址的主机
+    console.log(location.port);     //输出当前地址的端口号
+    console.log(location.pathname); //输出当前地址的路径部分
+    console.log(location.search);   //输出当前地址的?后边的参数部分
+
+    // 修改地址
+    // location = "https://www.baidu.com";
+    // location.href = "https://www.baidu.com";
+    // assign()：用来跳转到其它的页面，作用和直接修改location一样
+    // location.assign("https://www.baidu.com");
+    // reload()：用于重新加载当前页面，作用和刷新按钮一样，如果在方法中传递一个true，作为参数，则会强制清空缓存刷新页面
+    // location.reload(true);
+  </script>
+</body>
+
+</html>

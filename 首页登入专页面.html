@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <style>
+        .bigdiv{
+            width: 500px;
+            height: 500px;
+            background-image: url('photo/库洛米.jpg');
+            border-radius: 100px;
+            position: fixed;
+            top: 100px;
+            left: 400px;
+        }
+        @font-face {
+            font-family: jianzhi;
+            src: url('font/FZJZJW.TTF');
+        }
+        .xiaodiv{
+            width: 500px;
+            height: 50px;
+            font-family: jianzhi;
+            font-size: 30px;
+            letter-spacing: 10px;
+            text-align: center;
+        }
+    </style>
+    <div class="bigdiv">
+        <div style="width: 500px;height: 50px;"></div>
+        <div class="xiaodiv">
+            请在此登入
+        </div><div style="width: 500px;height: 50px"></div>
+        <div style="width: 100px;height: 200px;float: left;"></div>
+        <div style="width: 64.75px;height: 200px;float: left;">
+            <div style="height: 21.5px;">账号：</div><br>
+            <div style="height: 21.5px;">密码：</div>
+        </div>
+        <div style="width: 170.5px;height: 200px;float: left;">
+             <div style="width: 170.5px;height: 21.5px"><input type="text" id="zhanghao"></div><br>
+             <div style="width: 170.5px;height: 21.5px"><input type="text" id="zhengyan"></div>
+        </div>
+        <div style="width: 64.75px;height: 200px;float:left;">
+            <div style="width: 64.75px;height: 22px;"></div><br>
+            <label for=zhengyan">
+                <img src="photo/草莓熊1.jpg" style="width: 21.5px;height: 21.5px;" id="biyan">
+            </label>
+        </div>
+        <div style="width: 500px;height: 100px;float: left;">
+            <input type="button" value="登入" id="denglu">
+        </div>
+    </div>
+    <script>
+        var zhengyan = document.getElementById('zhengyan');
+        var biyan = document.getElementById('biyan');
+        var flag = 0;
+        biyan.onclick = function(){
+            if (flag == 0){
+                zhengyan.type = 'text';
+                biyan.src = "photo/草莓熊2.jpg";
+                flag = 1;
+            }else{
+                zhengyan.type = 'password';
+                biyan.src = 'photo/草莓熊1.jpg';
+                flag = 0;
+            }
+        }
+        var denglu = document.getElementById('denglu');
+		//当点击登入时获取
+        denglu.onclick = function(){
+			//获取账号的值
+			var zhanghao = $('zhanghao').value;
+                if (zhanghao == 17318071915){
+                    alert('输入正确');
+                }else{
+                    alert('输入错误');
+        }
+        }}
+    </script>
+</body>
+</html>

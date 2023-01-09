@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<style>
+  .login-header {
+    width: 100%;
+    text-align: center;
+    font-size: 20pt;
+    position: absolute;
+  }
+
+  .modal {
+    width: 500px;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    box-shadow: 0px 0px 20px #ddd;
+    z-index: 999;
+    cursor: move;
+
+  }
+
+  .modal form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+  }
+
+  .modal form .item1 {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+  }
+
+  .modal form .item2 {
+    margin: 0 auto;
+    width: 70%;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    /* 设置同一行子元素在X轴的对齐方式 */
+    justify-content: space-around;
+    /* 设置同一行子元素在Y轴的对齐方式 */
+    align-items: center;
+  }
+
+  .username {
+    margin-left: 16px;
+  }
+
+  .vip {
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 3px 40px;
+    background-color: orange;
+    color: #fff;
+  }
+
+  .close {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    border: 1px solid #ccc;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 17px;
+    border-radius: 50%;
+    background-color: white;
+    cursor: pointer;
+  }
+
+  .login-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+    display: none;
+  }
+</style>
+
+<body>
+  <div class="login-bg"></div>
+  <div class="modal">
+    <form>
+      <div class="item1">登入会员</div>
+      <div class="item2">
+        <div class="username">
+          <label for="username">用户名:</label>
+          <input type="text" name="username">
+        </div>
+      </div>
+      <div class="item1">
+        <div class="vip">登录会员</div>
+      </div>
+    </form>
+    <div class="close">x</div>
+  </div>
+  <div class="login-header">单机，登入会员...</div>
+</body>
+
+<script>
+  var modal = document.querySelector(".modal");
+  var close = document.querySelector(".close");
+  var login = document.querySelector(".login-header");
+  var bg = document.querySelector(".login-bg");
+  // console.log(bg);
+  login.addEventListener("click", function () {
+    modal.style.display = "block";
+    bg.style.display = "block";
+    modal.style.backgroundColor = "white";
+  })
+  close.addEventListener("click", function () {
+    modal.style.display = "none";
+    bg.style.display = "none";
+  })
+  modal.addEventListener("mousedown", (e) => {
+    let x = e.pageX - modal.offsetLeft;
+    let y = e.pageY - modal.offsetTop;
+    let widths = window.innerWidth;
+    let heights = window.innerHeight;
+    flag = true;
+    document.addEventListener("mousemove", (e) => {
+      if (flag) {
+        let xx = e.pageX - x;
+        let yy = e.pageY - y;
+        xx = Math.min(Math.max(xx, 0),widths);
+        yy = Math.min(Math.max(yy, 0),heights);
+        // console.log(xx);
+        modal.style.left = xx + "px";
+        modal.style.top = yy + "px";
+      }
+    })
+  })
+  modal.addEventListener("mouseup", function (e) {
+    flag = false;
+  })
+
+</script>
+
+</html>

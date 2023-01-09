@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // trim用于去除字符串两端的空格 返回一个新的字符串 不改变原字符串
+        var str = " hello word ";
+        var retule = str.trim();
+        console.log(str,retule);
+        //该方法还能去除制表符(\t,\v)换行符(\n)和回车符(\r)
+        var str1 = "\r\nhello word\t";
+        console.log(str1.trim());
+        //trimStart能去掉头部空格 trimEnd能去掉尾部空格
+        console.log(str.trimStart(),str.trimEnd()); 
+    </script>
+</body>
+</html>

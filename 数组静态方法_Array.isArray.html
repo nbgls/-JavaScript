@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // Array.isArray返回一个布尔值 表示参数是否为数组 可以弥补typeof运算符的不足
+        var arr = ["hello","word"];
+        var arr1 = "hello word"
+        console.log(typeof(arr));         //object    应该返回值为Array 说明返回值是错的
+        console.log(Array.isArray(arr));       //true    是数组
+        console.log(Array.isArray(arr1));          //flase    不是数组
+    </script>
+</body>
+</html>

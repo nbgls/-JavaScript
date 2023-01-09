@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+
+<script>
+  // error 对象提供两个有用的属性：name 和 message 
+  // name	设置或返回错误名
+  // message	设置或返回错误消息（一条字符串）
+  // Error Name Values 6个不同的值
+  // (1)EvalError	已在 eval() 函数中发生的错误
+  // (2)RangeError	已发生超出数字范围的错误
+  // (3)ReferenceError	已发生非法引用
+  // (4)SyntaxError	已发生语法错误
+  // (5)TypeError	已发生类型错误
+  // (6)URIError	在 encodeURI() 中已发生的错误
+  try {
+    // 可能发生异常的代码
+} catch (error) {
+    // 发生错误执行的代码
+} finally {
+    // 无论是否出错都会执行的代码
+}
+
+
+// 主动抛出内置异常
+/*该函数接收一个数字，返回它的平方。*/
+function foo(num) {
+    if (typeof num == "number") {
+        return num * num;
+    } else {
+        throw new TypeError("您输入的是一个非法数字！")
+    }
+}
+
+console.log(foo(4));
+console.log(foo("abc"));
+
+
+
+/*自定义错误*/
+function MyError(message) {
+    this.message = "注意：这是自定义的错误"
+    this.name = "自定义错误";
+}
+MyError.prototype = new Error();
+
+try {
+    throw new MyError("注意：这是自定义错误类型")
+} catch (error) {
+    console.log(error.message)
+}
+
+</script>
+
+
+</html>

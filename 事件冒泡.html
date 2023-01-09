@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<style>
+  #div1 {
+            width: 200px;
+            height: 200px;
+            background: pink;
+        }
+
+        #div2 {
+            width: 100px;
+            height: 100px;
+            background: coral;
+        }
+  </style>
+
+<body>
+  
+<div id="div1">
+  我是div1
+  <div id="div2">我是div2</div>
+</div>
+<a href="https://www.baidu.com" id="a">打开百度，你就知道！</a>
+
+
+</body>
+
+
+<script>
+    var div1 = document.getElementById("div1");
+    var div2 = document.getElementById("div2");
+
+    // 为div1绑定单击事件
+    div1.onclick = function () {
+        console.log("div1 的单击事件触发了！");
+        stopBubble();
+    };
+
+    // 为div2绑定单击事件
+    div2.onclick = function () {
+        console.log("div2 的单击事件触发了！");
+        stopBubble();
+    };
+
+
+
+
+    // 事件的冒泡（Bubble）：所谓的冒泡指的就是事件的向上传导，当后代元素上的事件被触发时，其祖先元素的相同事件也会被触发，在开发中大部分情况冒泡都是有用的，如果不希望发生事件冒泡可以通过事件对象来取消冒泡。
+    // 取消事件冒泡
+    function stopBubble(event) {
+        // 如果提供了事件对象，则这是一个非IE浏览器
+        if (event && event.stopPropagation) {
+            // 因此它支持W3C的stopPropagation()方法
+            event.stopPropagation();
+        } else {
+            // 否则，我们需要使用IE的方式来取消事件冒泡
+            window.event.cancelBubble = true;
+        }
+    }
+
+
+
+
+    var a = document.getElementById("a");
+
+    // 为a绑定单击事件
+    a.onclick = function () {
+        stopDefault();
+    };
+
+    // 阻止浏览器的默认行为
+    function stopDefault(event) {
+        if (event && event.preventDefault) {
+            // 阻止默认浏览器动作(W3C)
+            event.preventDefault();
+        } else {
+            // IE中阻止函数器默认动作的方式
+            window.event.returnValue = false;
+        }
+        return false;
+    }
+
+</script>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<table>
+			<thead>
+				<tr>
+					<th>代码</th>
+					<th>名称</th>
+					<th>最新公布净值</th>
+					<th>累计净值</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>0035</td>
+					<td>3个月定期开放债卷</td>
+					<td>1.075</td>
+					<td>1.079</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+	<script>
+		var trs = document.querySelector('tbody').querySelectorAll('tr');
+		//利用循环绑定注册事件
+		for (var i = 0; i < trs.length; i++){
+			//鼠标指针经过事件onmouseover
+			trs[i].onmouseover = function(){
+				this.className = 'bg';
+			};
+			//鼠标指针离开事件onmouseout
+			trs[i].onmouseout = function(){
+				this.className = '';
+			};
+		}
+	</script>
+</html>
